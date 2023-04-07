@@ -1,0 +1,8 @@
+//HOME PAGE
+SEARCH BOX - "//input[@id='cardekhosearchtext']"
+SUBMIT BUTTON - "(//button[@type='submit'])[1]"
+get text on hhome page - //h2[text()='The most searched cars'] or auto generated //h2[contains(text(),'The most searched cars')]
+
+Maruti Alto 800 search this
+
+
