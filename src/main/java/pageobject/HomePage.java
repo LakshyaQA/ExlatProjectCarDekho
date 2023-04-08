@@ -11,7 +11,7 @@ public class HomePage extends WebTest {
                                                                   //list all elements on home page
     @FindBy(xpath = "//input[@id='cardekhosearchtext']")
     WebElement searchTextBox;                                    //click and sendkeys action to perform
-    WebElement searchTextBox1; //issue//was it reqired to create
+    //issue//was it reqired to create
 
     @FindBy(xpath = "(//button[@type='submit'])[1]")
     WebElement searchButtonClick;                               //after above click to search final result
@@ -26,11 +26,13 @@ public class HomePage extends WebTest {
     //searchtext key used value and key stored in cofig.properties file CHECK IF DIDI RIGHT
     public void searchText( String searchtext){
         searchTextBox.click();
-        searchTextBox1.sendKeys("Maruti Alto 800");          //do wee need to put in properties file?
-    }
-    public void searchButton(){
+        searchTextBox.sendKeys(searchtext);
         searchButtonClick.click();
+        //do wee need to put in properties file?
     }
+    //public void searchButton(){
+        //searchButtonClick.click();
+   // }
     public String textOfElement(){
         return TestUtils.getTextOfElement(homePageMostUsedCarText);
     }

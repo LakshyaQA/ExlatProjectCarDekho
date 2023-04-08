@@ -8,7 +8,7 @@ import pageobject.HomePage;
 import testcase.WebTest;
 
 public class HomeTest extends WebTest {
-    public pageobject.HomePage HomePage homePage;
+    public HomePage homePage;
 
     HomeTest() {
         super();
@@ -23,9 +23,7 @@ public void beforeMethod(){
 public void carSearch() {
     SoftAssert softAssert = new SoftAssert();
     softAssert.assertEquals(homePage.textOfElement(),"The most searched cars", "Title must match element)");//which line t put and get text element first
-    homePage.searchTextBox();
-    homePage.searchTextBox1();
-    homePage.searchButtonClick();
+    homePage.searchText(prop.getProperty("searchtext"));
 
 }
 @AfterMethod
