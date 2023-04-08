@@ -7,28 +7,33 @@ import org.testng.asserts.SoftAssert;
 import pageobject.HomePage;
 import testcase.WebTest;
 
-public class HomeTest extends WebTest {
+
+public class HomeTest extends WebTest {   //error 1
     public HomePage homePage;
 
     HomeTest() {
         super();
     }
 
-@BeforeMethod
-public void beforeMethod(){
-  initialization();
-  homePage = new HomePage();
-}
-@Test
-public void carSearch() {
+    @BeforeMethod
+    public void beforeMethod(){
+    initialization();
+    homePage = new HomePage();
+    }
+    @Test
+    public void carSearch() {
     SoftAssert softAssert = new SoftAssert();
     softAssert.assertEquals(homePage.textOfElement(),"The most searched cars", "Title must match element)");//which line t put and get text element first
-    homePage.searchText(prop.getProperty("searchtext"));
+   //homePage.searchBoxText(prop.getProperty("searchtext"));
+    }
+   /* @Test  //new created
+    public void textInput(){
+    homePage.searchBoxText(prop.getProperty("searchtext"));
+    }*/
 
-}
-@AfterMethod
-public void afterMethod() throws InterruptedException {
+    @AfterMethod
+    public void afterMethod() throws InterruptedException {
     Thread.sleep(5000);
     driver.close();
-}
+    }
 }
