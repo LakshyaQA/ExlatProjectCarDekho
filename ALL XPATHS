@@ -1,8 +1,18 @@
 //HOME PAGE
 SEARCH BOX - "//input[@id='cardekhosearchtext']"
+first option in dropdown -- //li[@class='gs_ta_choice active']
 SUBMIT BUTTON - "(//button[@type='submit'])[1]"
-get text on hhome page - //h2[text()='The most searched cars'] or auto generated //h2[contains(text(),'The most searched cars')]
+get text on home page - //h2[text()='The most searched cars'] or auto generated //h2[contains(text(),'The most searched cars')]
 
 Maruti Alto 800 search this
+
+//FIND YOUR RIGHT CAR
+USED CAR - //li[@title='Used Car']
+RADIO BUTTON - (//span[@class='gs_control__indicator'])[4] or //body/div[@id='main']/div[@id='rf01']/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]/label[1]/span[1]
+
+//clck on social media link facebook - //span[@class='icon-cd-fb-icon']
+
+
+
 
 
