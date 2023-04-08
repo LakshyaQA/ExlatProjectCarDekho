@@ -13,6 +13,9 @@ public class HomePage extends WebTest {
     WebElement searchTextBox;                                    //click and sendkeys action to perform
     //issue//was it reqired to create
 
+    @FindBy(xpath ="/li[@class='gs_ta_choice active'])")
+    WebElement selectCarName;
+
     @FindBy(xpath = "(//button[@type='submit'])[1]")
     WebElement searchButtonClick;                               //after above click to search final result
 
@@ -30,10 +33,8 @@ public class HomePage extends WebTest {
         searchButtonClick.click();
         //do wee need to put in properties file?
     }
-    //public void searchButton(){
-        //searchButtonClick.click();
-   // }
+
     public String textOfElement(){
-        return TestUtils.getTextOfElement(homePageMostUsedCarText);
-    }
+        TestUtils.getTextOfElement(homePageMostUsedCarText);
+    } return.
 }
