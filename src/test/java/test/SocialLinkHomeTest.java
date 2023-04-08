@@ -16,8 +16,9 @@ public class SocialLinkHomeTest extends WebTest {
         socialLinkHomePage = new SocialLinkHomePage();
     }
     @Test
-    void Test1(){
-        driver.findElement(By.xpath("//a[@title='Facebook']")).click();
+    public void Test1() {
+        socialLinkHomePage.clickFacebook();
+
     }
     @AfterMethod
     public void afterMethod() throws InterruptedException {

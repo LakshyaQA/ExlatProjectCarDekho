@@ -7,7 +7,7 @@ import testcase.WebTest;
 
 public class SocialLinkHomePage extends WebTest {
 
-    @FindBy(xpath = "//span[@class='icon-cd-fb-icon']")
+    @FindBy(partialLinkText = "https://www.facebook") //(//a[@target='_blank'])[27]
     WebElement facebookClick;
 
     public SocialLinkHomePage() {
@@ -17,3 +17,5 @@ public class SocialLinkHomePage extends WebTest {
         facebookClick.click();
     }
 }
+
+/*<a href="https://www.facebook.com/CarDekho/" target="_blank" title="Facebook" rel="noopener"><span class="icon-cd-fb-icon"></span></a>*/
