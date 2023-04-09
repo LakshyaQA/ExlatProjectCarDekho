@@ -9,6 +9,9 @@ import testcase.WebTest;
 
 public class HoverMouseHomePage extends WebTest {
 
+    @FindBy(xpath = "//a[@href='/newcars']")
+    WebElement newCarTab;
+
     @FindBy(xpath = "//a[@title='New Car']")
     WebElement mouseHover;
 
@@ -16,32 +19,16 @@ public class HoverMouseHomePage extends WebTest {
         PageFactory.initElements(driver,this);
     }
 
-    public void mouseAction(){
+ /*   public static void mouseAction(){   //object of action class
         Actions act = new Actions(driver);
         act.moveToElement(mouseHover).perform();
+    }*/
+
+
+    public static void mouseHover() {
+
     }
 
 
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}

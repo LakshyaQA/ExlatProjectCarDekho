@@ -26,7 +26,7 @@ public class HomeTest extends WebTest {   //error 1
     softAssert.assertEquals(homePage.textOfElement(),"The most searched cars", "Title must match element)");//which line t put and get text element first
    //homePage.searchBoxText(prop.getProperty("searchtext"));
     }
-   /* @Test  //new created
+    /*@Test  //new created
     public void textInput(){
     homePage.searchBoxText(prop.getProperty("searchtext"));
     }*/

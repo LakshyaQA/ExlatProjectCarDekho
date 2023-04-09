@@ -21,10 +21,11 @@ public class HoverMouseHomeTest extends WebTest {
     public void beforeMethod() {
         initialization();
     }
-    /*@Test
+    @Test
     public void Hover(){
-        HoverMouseHomePage.mouseHover;
-    }*/
+        HoverMouseHomePage.mouseHover();
+       // HoverMouseHomePage.mouseAction();
+    }
     @AfterMethod
     public void afterMethod() throws InterruptedException {
         Thread.sleep(5000);

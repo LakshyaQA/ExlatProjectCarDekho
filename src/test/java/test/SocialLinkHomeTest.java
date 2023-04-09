@@ -18,6 +18,8 @@ public class SocialLinkHomeTest extends WebTest {
     @Test
     public void Test1() {
         socialLinkHomePage.clickFacebook();
+        /*Test.scrollDowByPixel();
+        socialLinkHomePage.getWindowHandles();*/
 
     }
     @AfterMethod
