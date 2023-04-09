@@ -33,13 +33,12 @@ public class HomeTest extends WebTestBase {   //error 1
         homePage.searchBoxText(prop.getProperty("searchtext"));
     }
 
-    /*@Test
-    public void verifyMouseHover() {                   //hover action
-        homePage.mouseHover();
-        homePage.mouseAction();
-    }*/
-
     @Test
+    public void verifyMouseHover() {                   //hover action passed PASSSING
+        homePage.mouseAction();
+    }
+
+    @Test                                               //CLICKING ON FACEBOOK LINK PASSING PASSED
     public void verifyFacebookLink() { //partially working
         homePage.clickFacebook();
     }

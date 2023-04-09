@@ -31,7 +31,7 @@ public class TestUtils {
         js.executeScript("window.scrollBy(0,10000)");
     }
 
-    public static void getWindowHandles() {            //social link homepage
+    public static void getWindowHandles() {
         String parentId = driver.getWindowHandle();
         Set<String> allWindow = driver.getWindowHandles();
         for (String s : allWindow) {

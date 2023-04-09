@@ -33,12 +33,11 @@ public class HomePage extends WebTestBase { //1 webtest error and driver error
 
     // mouse hover and click
 
-    @FindBy(xpath = "//a[@href='/newcars']")
-    static
-    WebElement newCarTab;
-
     @FindBy(xpath = "//a[@title='New Car']")
     WebElement mouseHover;
+
+    @FindBy(xpath = "//li[@data-slug='/newcars']/span/span[1]")
+    WebElement searchNewCarButton;
 
     //facebook click
 
@@ -50,14 +49,16 @@ public class HomePage extends WebTestBase { //1 webtest error and driver error
     }
 
     //searchtext key used value and key stored in cofig.properties file CHECK IF DIDI RIGHT
-    public void searchText() {                   //String searchtext
+    public void searchText(String searchtext) {                   //String searchtext
         searchTextBox.click();
-        //do wee need to put in properties file?
+        searchTextBox.sendKeys(searchtext);
+        TestUtils.getSearch(select, searchtext);
+                                                    //do wee need to put in properties file?
     }
 
     public void searchBoxText(String searchtext) {  //search text to use??
         byModelRadioButton.sendKeys(searchtext);
-        TestUtils.getSearch(select, searchtext);
+        //TestUtils.getSearch(select, searchtext);
         byModelRadioButton.sendKeys(Keys.ENTER);
     }
 
@@ -78,15 +79,17 @@ public class HomePage extends WebTestBase { //1 webtest error and driver error
         return TestUtils.elementIsSelected(byModelRadioButton);
     }
 
-    public static void mouseAction(){   //object of action class //mouse hover
+    public void mouseAction(){   //object of action class //mouse hover
         Actions act = new Actions(driver);
-        act.moveToElement(newCarTab).perform();
+        act.moveToElement(mouseHover).moveToElement(searchNewCarButton).click().build().perform();//which one to put
     }
 
     public void clickFacebook(){
-        facebookClick.click();
         TestUtils.scrollDowByPixel();
         TestUtils.getWindowHandles();
+        facebookClick.click();
+
     }
+
 
 }

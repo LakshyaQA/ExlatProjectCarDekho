@@ -19,5 +19,10 @@ RADIO BUTTON - (//span[@class='gs_control__indicator'])[4] or //body/div[@id='ma
 //facebook link click - //a[@title='Facebook'] or //span[@class='icon-cd-fb-icon']
 
 
+(//li[@data-slug='/newcars'])[2]/
+//ul[@class='subMenu newSubMenu']/li[1]/span[class(),'innerspan']
+
+SEARCH NEW CAR-//li[@data-slug='/newcars']/span/span[1]
+
 
 
