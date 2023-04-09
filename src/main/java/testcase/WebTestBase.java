@@ -12,13 +12,13 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
 
-public class WebTest {
+public class WebTestBase {
 
     public static WebDriver driver;
                                                                                                         // public static WebDriverManager driver;
     public static Properties prop;
 
-    public WebTest() {                                                                                 //properties file handling
+    public WebTestBase() {                                                                                 //properties file handling
         try {
             FileInputStream fileInputStream = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/properties/config.properties");
             prop = new Properties();
@@ -55,5 +55,3 @@ public class WebTest {
             driver.manage().deleteAllCookies();
         }
     }
-
-
