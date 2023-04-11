@@ -98,4 +98,69 @@ SEARCH NEW CAR-//li[@data-slug='/newcars']/span/span[1]
         @FindBy(xpath = "//title[contains(text(),'New Maruti Alto 800 Price 2023, Images, Colours & Reviews')]")
             WebElement titleName;
 
-////softAssert.assertEquals(homePage.getTextOfPage(), "New Maruti Alto 800 Price 2023, Images, Colours & Reviews", "Title must match element)");//which line t put and get text element first
+////softAssert.assertEquals(homePage.getTextOfPage(), "New Maruti Alto 800 Price 2023, Images, Colours & Reviews", "Title must match element)");//which line t put and get text element first.
+
+
+//// softAssert.assertEquals(homePage.getTextOfPage(), "CarDekho: New Cars, Car Prices, Buy & Sell Used Cars in India", "Title must match element)");
+
+// @FindBy(xpath = "//li[@data-slug='/newcars']/span/span[1]")
+    // WebElement searchNewCarButton;
+
+
+
+    //list all elements on home page and search text
+
+        @FindBy(xpath = "//input[@id='cardekhosearchtext']")
+        WebElement searchTextBox;
+
+        //radio button action
+
+        @FindBy(xpath = "//li[contains(text(),'Used Car')]")
+        WebElement usedCarTab;
+
+        @FindBy(xpath = "(//input[@name='usedcar'])[2]")
+        WebElement byModelRadioButton;
+
+        // mouse hover and click
+
+        @FindBy(xpath = "//a[@title='New Car']")
+        WebElement mouseHover;
+
+        // @FindBy(xpath = "//li[@data-slug='/newcars']/span/span[1]")
+        // WebElement searchNewCarButton;
+
+        //facebook click
+
+        @FindBy(xpath = "//a[@title='Facebook']")
+        WebElement facebookClick;
+
+        public HomePage() {
+            PageFactory.initElements(driver, this);
+        }
+
+        public void searchBoxText(String searchtext) {
+            searchTextBox.sendKeys(searchtext);
+            searchTextBox.sendKeys(Keys.ENTER);
+        }
+
+        public String getTextOfPage() {
+            return TestUtils.getTextOfPage("");
+        }
+
+        public void clickRadioBtn() {
+            usedCarTab.click();
+            byModelRadioButton.click();
+        }
+
+        public void mouseAction() {
+            Actions act = new Actions(driver);
+            act.moveToElement(mouseHover).build().perform();//which one to put
+            //act.moveToElement(searchNewCarButton).click().build().perform();
+        }
+
+        public void clickFacebook() {
+            TestUtils.scrollDowByPixel();
+            TestUtils.getWindowHandles();
+            facebookClick.click();
+        }
+    }

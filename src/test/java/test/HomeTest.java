@@ -25,7 +25,7 @@ public class HomeTest extends WebTestBase {   //error 1
     public void verifySearchOfProduct() {
         SoftAssert softAssert = new SoftAssert();
         homePage.searchBoxText(prop.getProperty("searchtext"));
-        softAssert.assertEquals(homePage.getTextOfPage(), "CarDekho: New Cars, Car Prices, Buy & Sell Used Cars in India", "Title must match element)");
+        softAssert.assertEquals(homePage.textOnPage(), "The most searched cars", "Title must match");
         softAssert.assertAll();
     }
 
@@ -33,7 +33,7 @@ public class HomeTest extends WebTestBase {   //error 1
     public void verifyClickRadioButton() {
         SoftAssert softAssert = new SoftAssert();
         homePage.clickRadioBtn();
-        softAssert.assertEquals(homePage.getTextOfPage(), "CarDekho: New Cars, Car Prices, Buy & Sell Used Cars in India", "Title must match element)");
+        softAssert.assertEquals(homePage.textTab(), "Find your right car", "Title must match element)");
         softAssert.assertAll();
 
     }
@@ -42,7 +42,7 @@ public class HomeTest extends WebTestBase {   //error 1
     public void verifyMouseHover() {
         SoftAssert softAssert = new SoftAssert();
         homePage.mouseAction();
-        softAssert.assertEquals(homePage.getTextOfPage(), "CarDekho: New Cars, Car Prices, Buy & Sell Used Cars in India", "Title must match element)");
+        softAssert.assertEquals(homePage.textOnHover(), "NEW CAR", "Title must match element)");
         softAssert.assertAll();
     }
 

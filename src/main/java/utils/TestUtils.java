@@ -16,6 +16,19 @@ public class TestUtils {
         return driver.getTitle();
     }
 
+    public static String getTxtOfPage(WebElement element) {
+        return element.getText();
+    }
+
+    public static String getTxtOfHover(WebElement element) {
+        return element.getText();
+    }
+
+    public static String textTab(WebElement element) {
+        return element.getText();
+    }
+
+
     public static void getSearch(List<WebElement> elements, String searchtext) {  //homepage
         for (WebElement e : elements) {
             if (e.getText().equalsIgnoreCase(searchtext)) {

@@ -10,12 +10,11 @@ import utils.TestUtils;
 
 public class HomePage extends WebTestBase {
 
-    //list all elements on home page and search text
-
     @FindBy(xpath = "//input[@id='cardekhosearchtext']")
     WebElement searchTextBox;
 
-    //radio button action
+    @FindBy(xpath = "//h2[normalize-space()='The most searched cars']")
+    WebElement txt;
 
     @FindBy(xpath = "//li[contains(text(),'Used Car')]")
     WebElement usedCarTab;
@@ -23,18 +22,18 @@ public class HomePage extends WebTestBase {
     @FindBy(xpath = "(//input[@name='usedcar'])[2]")
     WebElement byModelRadioButton;
 
-    // mouse hover and click
+    @FindBy(xpath = "//h1[contains(text(),'Find your right car')]")
+    WebElement tab;
 
     @FindBy(xpath = "//a[@title='New Car']")
     WebElement mouseHover;
 
-    // @FindBy(xpath = "//li[@data-slug='/newcars']/span/span[1]")
-    // WebElement searchNewCarButton;
-
-    //facebook click
+    @FindBy(xpath = "//a[@title='New Car']")
+    WebElement hover;
 
     @FindBy(xpath = "//a[@title='Facebook']")
     WebElement facebookClick;
+
 
     public HomePage() {
         PageFactory.initElements(driver, this);
@@ -43,10 +42,6 @@ public class HomePage extends WebTestBase {
     public void searchBoxText(String searchtext) {
         searchTextBox.sendKeys(searchtext);
         searchTextBox.sendKeys(Keys.ENTER);
-    }
-
-    public String getTextOfPage() {
-        return TestUtils.getTextOfPage("");
     }
 
     public void clickRadioBtn() {
@@ -64,5 +59,21 @@ public class HomePage extends WebTestBase {
         TestUtils.scrollDowByPixel();
         TestUtils.getWindowHandles();
         facebookClick.click();
+    }
+
+    public String getTextOfPage() {
+        return TestUtils.getTextOfPage("");
+    }
+
+    public String textOnPage() {
+        return TestUtils.getTxtOfPage(txt);
+    }
+
+    public String textOnHover() {
+        return TestUtils.getTxtOfHover(hover);
+    }
+
+    public String textTab() {
+        return TestUtils.getTxtOfPage(tab);
     }
 }
