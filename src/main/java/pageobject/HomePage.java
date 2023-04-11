@@ -10,25 +10,19 @@ import utils.TestUtils;
 
 import java.util.List;
 
-public class HomePage extends WebTestBase { //1 webtest error and driver error
-    //list all elements on home page
+public class HomePage extends WebTestBase {
+
+    //list all elements on home page and search text
+
     @FindBy(xpath = "//input[@id='cardekhosearchtext']")
-    WebElement searchTextBox;                                   //click and sendkeys action to perform //issue//was it reqired to create
+    WebElement searchTextBox;
 
+    //radio button action
 
-    @FindBy(xpath = "//div[@class='gs_ta_results width100   ']//child::ul/li")
-    List<WebElement> select;
+    @FindBy(xpath = "//li[contains(text(),'Used Car')]")
+    WebElement usedCarTab;
 
-    @FindBy(xpath = "(//button[@type='submit'])[1]")
-    WebElement searchButtonClick;                               //after above click to search final result
-
-    @FindBy(xpath = "//h2[text()='The most searched cars']")
-    WebElement homePageMostUsedCarText;
-
-    @FindBy(xpath = "//li[normalize-space()='Used Car']")//working
-    WebElement selectTab;
-
-    @FindBy(xpath = "(//input[@name='usedcar'])[2]") //(//input[@name='usedcar'])[2]  //(//i[normalize-space()='By Model'])
+    @FindBy(xpath = "(//input[@name='usedcar'])[2]")
     WebElement byModelRadioButton;
 
     // mouse hover and click
@@ -36,60 +30,41 @@ public class HomePage extends WebTestBase { //1 webtest error and driver error
     @FindBy(xpath = "//a[@title='New Car']")
     WebElement mouseHover;
 
-    @FindBy(xpath = "//li[@data-slug='/newcars']/span/span[1]")
-    WebElement searchNewCarButton;
+    // @FindBy(xpath = "//li[@data-slug='/newcars']/span/span[1]")
+    // WebElement searchNewCarButton;
 
     //facebook click
 
-    @FindBy(xpath = "//a[@title='Facebook']") //(//a[@target='_blank'])[27]
+    @FindBy(xpath = "//a[@title='Facebook']")
     WebElement facebookClick;
 
     public HomePage() {
         PageFactory.initElements(driver, this);
     }
 
-    //searchtext key used value and key stored in cofig.properties file CHECK IF DIDI RIGHT
-    public void searchText(String searchtext) {                   //String searchtext
-        searchTextBox.click();
+    public void searchBoxText(String searchtext) {
         searchTextBox.sendKeys(searchtext);
-        TestUtils.getSearch(select, searchtext);
-                                                    //do wee need to put in properties file?
+        searchTextBox.sendKeys(Keys.ENTER);
     }
 
-    public void searchBoxText(String searchtext) {  //search text to use??
-        byModelRadioButton.sendKeys(searchtext);
-        //TestUtils.getSearch(select, searchtext);
-        byModelRadioButton.sendKeys(Keys.ENTER);
-    }
-
-    public void buttonClick() {
-        searchButtonClick.click();
-    }
-
-    public String textOfElement() {
-        return TestUtils.getTextOfElement(homePageMostUsedCarText);
+    public String getTextOfPage() {
+        return TestUtils.getTextOfPage("");
     }
 
     public void clickRadioBtn() {
-        selectTab.click();
+        usedCarTab.click();
         byModelRadioButton.click();
     }
 
-    public Boolean selectRadioButton(){
-        return TestUtils.elementIsSelected(byModelRadioButton);
-    }
-
-    public void mouseAction(){   //object of action class //mouse hover
+    public void mouseAction() {
         Actions act = new Actions(driver);
-        act.moveToElement(mouseHover).moveToElement(searchNewCarButton).click().build().perform();//which one to put
+        act.moveToElement(mouseHover).build().perform();//which one to put
+        //act.moveToElement(searchNewCarButton).click().build().perform();
     }
 
-    public void clickFacebook(){
+    public void clickFacebook() {
         TestUtils.scrollDowByPixel();
         TestUtils.getWindowHandles();
         facebookClick.click();
-
     }
-
-
 }

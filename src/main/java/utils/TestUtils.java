@@ -3,19 +3,18 @@ package utils;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
-import java.security.PublicKey;
 import java.util.List;
 import java.util.Set;
 
 import static testcase.WebTestBase.driver;
 
 public class TestUtils {
-    public static final long IMPLICIT_WAIT = 20;         //using final long//for WebTest
+    public static final long IMPLICIT_WAIT = 20;
     public static final long PAGE_LOAD_WAIT = 20;
 
-    public static String getTextOfElement(WebElement element) {
-        return element.getText();
-    }//homepage
+    public static String getTextOfPage(String title) {
+        return driver.getTitle();
+    }
 
     public static void getSearch(List<WebElement> elements, String searchtext) {  //homepage
         for (WebElement e : elements) {
@@ -42,11 +41,4 @@ public class TestUtils {
             driver.switchTo().window(parentId);
         }
     }
-
-    public static boolean elementIsSelected(WebElement element){
-        return element.isSelected();
-    }
-
 }
-
-

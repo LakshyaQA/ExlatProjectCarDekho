@@ -26,3 +26,76 @@ SEARCH NEW CAR-//li[@data-slug='/newcars']/span/span[1]
 
 
 
+/*@Test(priority = 2)
+    public void carSearch() { //partially running
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(homePage.textOfElement(), "The most searched cars", "Title must match element)");//which line t put and get text element first
+        homePage.searchBoxText(prop.getProperty("searchtext"));
+    }*/
+
+    @Test  //new created //failed
+        public void verifyTextIput() {
+            homePage.searchBoxText(prop.getProperty("searchtext"));
+        }
+
+
+/*driver.findElement(By.xpath("//html/body/div[1]/form[1]/input[1]")).sendKeys("TaskOne");
+        driver.findElement(By.id("button")).click();
+
+        driver.findElement(By.xpath("//html/body/div[1]/form[1]/input[1]")).sendKeys("TaskTwo");
+        driver.findElement(By.id("button")).click();
+
+        driver.findElement(By.xpath("//html/body/div[1]/form[1]/input[1]")).sendKeys("TaskThree");
+        driver.findElement(By.id("button")).click();
+
+        WebElement act = driver.findElement(By.xpath("/html/body/div/ol/li[2]"));
+
+        Actions actions = new Actions(driver);
+        actions.doubleClick(act).build().perform();*/
+
+
+        /* public Boolean selectRadioButton()
+            {
+                return TestUtils.elementIsSelected(byModelRadioButton);
+            }*/
+
+            /* @Test(priority = 2)
+                public void verifyRadioButtonSelection() {    //passsing YESTERDAY
+                    SoftAssert softAssert = new SoftAssert();
+                    softAssert.assertTrue(homePage.selectRadioButton(),  "Radio Button Should Be Selected");
+                    softAssert.assertAll();
+                    // homePage.clickRadioBtn();//homePage.searchBoxText("Maruti Alto 800");
+                }*/
+
+               /* @Test(priority = 1)
+                public void verifyTextInput() {                             //action performed succesfully but failing
+                homePage.searchBoxText(prop.getProperty("searchtext"));
+                }*/
+
+
+                //title[conatins(text(),'New Maruti Alto 800 Price 2023, Images, Colours & ')]
+                //title[contains(text(),'New Maruti Alto 800 Price 2023, Images, Colours & Reviews')]
+
+
+//utils
+ public static String getTextOfSearch(WebElement search) {
+        return search.getText();
+    }//homepage
+
+    ///page
+
+      @FindBy(xpath = "//h1[text()='Maruti Alto 800']")
+        WebElement productName;
+
+     public String textOfSearch()
+        {
+            return TestUtils.getTextOfSearch(productName);
+        }
+
+
+        /title
+
+        @FindBy(xpath = "//title[contains(text(),'New Maruti Alto 800 Price 2023, Images, Colours & Reviews')]")
+            WebElement titleName;
+
+////softAssert.assertEquals(homePage.getTextOfPage(), "New Maruti Alto 800 Price 2023, Images, Colours & Reviews", "Title must match element)");//which line t put and get text element first

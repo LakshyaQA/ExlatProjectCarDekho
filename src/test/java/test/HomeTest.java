@@ -21,41 +21,42 @@ public class HomeTest extends WebTestBase {   //error 1
         homePage = new HomePage();
     }
 
-    @Test
-    public void carSearch() { //partially running
+    @Test(priority = 1)
+    public void verifySearchOfProduct() {
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertEquals(homePage.textOfElement(), "The most searched cars", "Title must match element)");//which line t put and get text element first
         homePage.searchBoxText(prop.getProperty("searchtext"));
-    }
-
-    @Test  //new created //failed
-    public void verifyTextIput() {
-        homePage.searchBoxText(prop.getProperty("searchtext"));
-    }
-
-    @Test
-    public void verifyMouseHover() {                   //hover action passed PASSSING
-        homePage.mouseAction();
-    }
-
-    @Test                                               //CLICKING ON FACEBOOK LINK PASSING PASSED
-    public void verifyFacebookLink() { //partially working
-        homePage.clickFacebook();
-    }
-
-    @Test
-    public void verifyRadioButtonSelection() {    //passsing
-        SoftAssert softAssert = new SoftAssert();
-        homePage.clickRadioBtn();
-        softAssert.assertTrue(homePage.selectRadioButton(), "Radio Button Should Be Selected");
+        softAssert.assertEquals(homePage.getTextOfPage(), "CarDekho: New Cars, Car Prices, Buy & Sell Used Cars in India", "Title must match element)");
         softAssert.assertAll();
     }
 
+    @Test(priority = 2)
+    public void verifyClickRadioButton() {
+        SoftAssert softAssert = new SoftAssert();
+        homePage.clickRadioBtn();
+        softAssert.assertEquals(homePage.getTextOfPage(), "CarDekho: New Cars, Car Prices, Buy & Sell Used Cars in India", "Title must match element)");
+        softAssert.assertAll();
+
+    }
+
+    @Test(priority = 3)
+    public void verifyMouseHover() {
+        SoftAssert softAssert = new SoftAssert();
+        homePage.mouseAction();
+        softAssert.assertEquals(homePage.getTextOfPage(), "CarDekho: New Cars, Car Prices, Buy & Sell Used Cars in India", "Title must match element)");
+        softAssert.assertAll();
+    }
+
+    @Test(priority = 4)
+    public void verifyFacebookLink() {
+        SoftAssert softAssert = new SoftAssert();
+        homePage.clickFacebook();
+        softAssert.assertEquals(homePage.getTextOfPage(), "CarDekho: New Cars, Car Prices, Buy & Sell Used Cars in India", "Title must match element)");
+        softAssert.assertAll();
+    }
 
     @AfterMethod
     public void afterMethod() throws InterruptedException {
         Thread.sleep(5000);
-       // driver.close();
+        driver.close();
     }
-
 }
