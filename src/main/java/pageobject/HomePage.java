@@ -8,8 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 import testcase.WebTestBase;
 import utils.TestUtils;
 
-import java.util.List;
-
 public class HomePage extends WebTestBase {
 
     //list all elements on home page and search text
