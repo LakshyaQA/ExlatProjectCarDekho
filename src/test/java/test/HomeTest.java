@@ -57,6 +57,6 @@ public class HomeTest extends WebTestBase {   //error 1
     @AfterMethod
     public void afterMethod() throws InterruptedException {
         Thread.sleep(5000);
-        driver.close();
+        driver.quit();
     }
 }
