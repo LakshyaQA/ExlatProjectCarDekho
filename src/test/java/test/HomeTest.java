@@ -49,6 +49,7 @@ public class HomeTest extends WebTestBase {   //error 1
     @Test(priority = 4)
     public void verifyFacebookLink() {
         SoftAssert softAssert = new SoftAssert();
+        homePage.handelWindow();
         homePage.clickFacebook();
         softAssert.assertEquals(homePage.getTextOfPage(), "CarDekho: New Cars, Car Prices, Buy & Sell Used Cars in India", "Title must match element)");
         softAssert.assertAll();

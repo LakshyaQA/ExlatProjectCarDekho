@@ -52,7 +52,7 @@ public class HomePage extends WebTestBase {
     public void mouseAction() {
         Actions act = new Actions(driver);
         act.moveToElement(mouseHover).build().perform();//which one to put
-        //act.moveToElement(searchNewCarButton).click().build().perform();
+
     }
 
     public void clickFacebook() {
@@ -75,5 +75,9 @@ public class HomePage extends WebTestBase {
 
     public String textTab() {
         return TestUtils.getTxtOfPage(tab);
+    }
+
+    public void handelWindow() {
+        TestUtils.getWindowHandles();
     }
 }

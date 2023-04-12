@@ -164,3 +164,5 @@ SEARCH NEW CAR-//li[@data-slug='/newcars']/span/span[1]
             facebookClick.click();
         }
     }
+
+    act.moveToElement(searchNewCarButton).click().build().perform();
