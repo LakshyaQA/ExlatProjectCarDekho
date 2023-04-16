@@ -27,11 +27,11 @@ public class WebTestBase {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }                                                                                       //always forgot to add this
+    }
 
     //initialize driver method create
     public static void initialization() {
-        String browser = prop.getProperty("browser");                                           //getting the browser which ever name meets feeding driver of browsers in browser key
+        String browser = prop.getProperty("browser");                      //getting the browser which ever name meets feeding driver of browsers in browser key
         if (browser.equalsIgnoreCase("chrome")) {
             System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/resources/drivermanager/chromedriver.exe");
             driver = new ChromeDriver();
@@ -51,7 +51,7 @@ public class WebTestBase {
                 e.printStackTrace();
             }
         }
-        driver.navigate().to(prop.getProperty("url"));                                                   //when required calling key frm properties class by get properties
+        driver.navigate().to(prop.getProperty("url"));                    //when required calling key frm properties class by get properties
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(TestUtils.PAGE_LOAD_WAIT));//goto TestUtils files
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(TestUtils.IMPLICIT_WAIT));

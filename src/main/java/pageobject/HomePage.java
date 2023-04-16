@@ -45,7 +45,7 @@ public class HomePage extends WebTestBase {
     }
 
     public void clickRadioBtn() {
-        usedCarTab.click();
+           usedCarTab.click();
         byModelRadioButton.click();
     }
 
